@@ -1,6 +1,6 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/olegtarasov/WebSocketWrapper/Build%20and%20publish?style=flat-square)](https://github.com/olegtarasov/WebSocketWrapper/actions)
-[![Nuget](https://img.shields.io/nuget/v/WebSocketWrapper?style=flat-square)](https://www.nuget.org/packages/WebSocketWrapper)
-[![Donwloads](https://img.shields.io/nuget/dt/WebSocketWrapper?label=Nuget&style=flat-square)](https://www.nuget.org/packages/WebSocketWrapper)
+[![Nuget](https://img.shields.io/nuget/v/OlegTarasov.WebSocketWrapper?style=flat-square)](https://www.nuget.org/packages/OlegTarasov.WebSocketWrapper)
+[![Donwloads](https://img.shields.io/nuget/dt/OlegTarasov.WebSocketWrapper?label=Nuget&style=flat-square)](https://www.nuget.org/packages/OlegTarasov.WebSocketWrapper)
 
 # WebSocketWrapper
 

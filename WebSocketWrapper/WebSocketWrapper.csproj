@@ -4,8 +4,7 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Title>WebSocketWrapper</Title>
-        <Description>A light-weight async wrapper on top of System.Net.WebSockets.ClientWebSocket. Supports IAsyncEnumerable message receiving, 
-            automatic reconnect and watchdog (reconnect if no data received for a specified period).</Description>
+        <Description>A light-weight async wrapper on top of System.Net.WebSockets.ClientWebSocket. Supports IAsyncEnumerable message receiving, automatic reconnect and watchdog (reconnect if no data received for a specified period).</Description>
         <Copyright>Oleg Tarasov</Copyright>
         <PackageProjectUrl>https://github.com/olegtarasov/WebSocketWrapper</PackageProjectUrl>
         <PackageLicenseUrl>https://raw.githubusercontent.com/olegtarasov/WebSocketWrapper/master/LICENSE</PackageLicenseUrl>
