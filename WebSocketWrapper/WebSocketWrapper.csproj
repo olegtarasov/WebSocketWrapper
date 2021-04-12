@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Title>WebSocketWrapper</Title>
+        <Description>A light-weight async wrapper on top of System.Net.WebSockets.ClientWebSocket. Supports IAsyncEnumerable message receiving, 
+            automatic reconnect and watchdog (reconnect if no data received for a specified period).</Description>
+        <Copyright>Oleg Tarasov</Copyright>
+        <PackageProjectUrl>https://github.com/olegtarasov/WebSocketWrapper</PackageProjectUrl>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/olegtarasov/WebSocketWrapper/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/olegtarasov/WebSocketWrapper</RepositoryUrl>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\WebSocketWrapper.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    </ItemGroup>
+
+</Project>
