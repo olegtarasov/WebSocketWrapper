@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace WebSocketWrapper
 {
     /// <summary>
-    /// A thin wrapper on top of <see cref="ClientWebSocket"/> with <see cref="IAsyncEnumerable"/> receiving,
+    /// A thin wrapper on top of <see cref="ClientWebSocket"/> with <see cref="IAsyncEnumerable{T}"/> receiving,
     /// automatic reconnections and watchdog.
     /// </summary>
     public class ClientWebSocketWrapper : IDisposable, IAsyncDisposable
@@ -48,7 +48,7 @@ namespace WebSocketWrapper
         /// </summary>
         /// <param name="uri">URI to connect to.</param>
         /// <param name="token">Optional cancellation token to cancel the connection process.</param>
-        /// <returns><see cref="true"/> if connected successfully, <see cref="false"/> otherwise.</returns>
+        /// <returns>true if connected successfully, false otherwise.</returns>
         public async Task<bool> ConnectAsync(Uri uri, CancellationToken token = default)
         {
             _logger?.LogDebug($"Connecting to {uri}");
@@ -60,7 +60,7 @@ namespace WebSocketWrapper
 
         /// <summary>
         /// Starts a watchdog timer. The timer fires every second and checks the time the last message was received.
-        /// If more than <see cref="timeout"/> elapsed from that time, websocket reconnect is triggered.
+        /// If more than <paramref name="timeout"/> elapsed from that time, websocket reconnect is triggered.
         /// </summary>
         /// <param name="timeout">The amount of time that should elapse since the last message to trigger the reconnect.</param>
         public void StartWatchdog(TimeSpan timeout)
@@ -77,7 +77,7 @@ namespace WebSocketWrapper
         /// Close the socket.
         /// </summary>
         /// <param name="token">An optional cancellation token to cancel the closing process.</param>
-        /// <returns><see cref="true"/> if closed successfully, <see cref="false"/> otherwise.</returns>
+        /// <returns>true if connected successfully, false otherwise.</returns>
         public async Task<bool> CloseAsync(CancellationToken token = default)
         {
             if (_socket == null)
@@ -112,7 +112,7 @@ namespace WebSocketWrapper
         /// </summary>
         /// <param name="message">A message to send.</param>
         /// <param name="token">An optional cancellation token to cancel the sending process.</param>
-        /// <returns><see cref="true"/> if sent successfully, <see cref="false"/> otherwise.</returns>
+        /// <returns>true if connected successfully, false otherwise.</returns>
         public async Task<bool> SendMessageAsync(string message, CancellationToken token = default)
         {
             try
@@ -302,19 +302,21 @@ namespace WebSocketWrapper
             }
         }
 
+        /// <inheritdoc cref="Dispose"/>
         public void Dispose()
         {
             _socket?.Dispose();
             _socket = null;
         }
 
+        /// <inheritdoc cref="DisposeAsync"/>
         public ValueTask DisposeAsync()
         {
             Dispose();
             return new ValueTask(Task.CompletedTask);
         }
 
-        protected virtual void OnReconnected(ReconnectReason reason)
+        private protected virtual void OnReconnected(ReconnectReason reason)
         {
             Reconnected?.Invoke(reason);
         }

@@ -10,6 +10,7 @@
         <PackageProjectUrl>https://github.com/olegtarasov/WebSocketWrapper</PackageProjectUrl>
         <PackageLicenseUrl>https://raw.githubusercontent.com/olegtarasov/WebSocketWrapper/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/olegtarasov/WebSocketWrapper</RepositoryUrl>
+        <PackageId>OlegTarasov.WebSocketWrapper</PackageId>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
